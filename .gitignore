@@ -1,4 +1,4 @@
-/target
+target
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -74,4 +74,7 @@ docs/_build/
 # version control
 .python-version
 *.lock
+
+# cache files
+*cache/
 
