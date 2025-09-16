@@ -1,0 +1,5 @@
+[env]
+
+# for pyo3 
+VIRTUAL_ENV = { value = ".venv", relative = true }
+
