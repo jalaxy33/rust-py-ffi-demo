@@ -4,7 +4,7 @@ use rust_py_ffi::from_py::*;
 
 fn main() -> PyResult<()> {
     // Python::initialize();
-    
+
     display_py_version()?;
     import_py_lib()?;
     eval_py_expression()?;

@@ -2,7 +2,7 @@
 name = "rust-py-ffi"
 version = "0.1.0"
 edition = "2021"
-default-run = "stub_gen"
+
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 [lib]
@@ -11,15 +11,11 @@ crate-type = ["rlib", "cdylib"]
 
 [dependencies]
 log = "0.4.28"
-pyo3 = { version = "0.26.0", features = ["extension-module", "auto-initialize"] }
-pyo3-stub-gen = "0.13.1"
+pyo3 = { version = "0.26.0", features = [
+    "extension-module",
+    "auto-initialize",
+] }
 
 [[bin]]
 name = "py_to_rust"
 path = "src/main.rs"
-
-
-[[bin]]
-name = "stub_gen"
-path = "src/bin/stub_gen.rs"
-

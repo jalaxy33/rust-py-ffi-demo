@@ -54,4 +54,3 @@ class Calculator:
 
     def clear_history(self):
         self.history.clear()
-

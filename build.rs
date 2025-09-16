@@ -8,9 +8,22 @@ fn main() {
 
 #[cfg(target_os = "windows")]
 fn link_windows_python_dll() {
-    let python_executable =
-        Path::new(&env::var("CARGO_MANIFEST_DIR").unwrap()).join(".venv/Scripts/python.exe");
+    let venv_dir = Path::new(&env::var("CARGO_MANIFEST_DIR").unwrap()).join(".venv");
+    let python_executable = venv_dir.join("Scripts/python.exe");
+
+    let venv_dir_str = &venv_dir.to_str().unwrap().to_string();
     let python_path_str = &python_executable.to_str().unwrap().to_string();
+
+    if !python_executable.exists() {
+        println!(
+            "cargo:warning=Python executable not found under {}, trying to install python dependencies using 'uv sync'",
+            venv_dir_str
+        );
+        std::process::Command::new("uv")
+            .args(&["sync"])
+            .output()
+            .expect("Failed to execute uv sync command");
+    }
 
     assert!(
         python_executable.exists(),
@@ -32,5 +45,4 @@ fn link_windows_python_dll() {
             println!("cargo:warning=Failed to get Python executable path");
         }
     }
-
 }

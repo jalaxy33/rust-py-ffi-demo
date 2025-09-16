@@ -7,7 +7,6 @@ use pyo3::py_run;
 use pyo3::types::IntoPyDict;
 use std::ffi::CString;
 
-
 pub fn display_py_version() -> PyResult<()> {
     println!("\n[Display Python Version]");
     Python::attach(|py| {
