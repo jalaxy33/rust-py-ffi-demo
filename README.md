@@ -3,13 +3,14 @@
 A demo repo for demostrating rust-python interoperation.
 
 ## Prerequisites
+
 - [Rust toolchain](https://www.rust-lang.org/tools/install)
 - [uv package manager](https://docs.astral.sh/uv/getting-started/installation/) (auto-manages Python environment)
-
 
 ## Usage
 
 **Install dependencies**:
+
 ```bash
 # Install maturin
 uv tool install maturin
@@ -19,7 +20,6 @@ uv sync
 ```
 
 ### Rust-to-Python
-
 
 ```bash
 # Build Rust lib
@@ -38,10 +38,3 @@ uv run {path/to/script}.py
 cargo r --bin py_to_rust
 
 ```
-
-
-
-
-
-
-
